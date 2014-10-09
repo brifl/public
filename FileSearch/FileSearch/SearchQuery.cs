@@ -1,6 +1,4 @@
-﻿// Copyright Microsoft 2014
-
-using System;
+﻿using System;
 
 namespace FileSearch
 {

@@ -1,6 +1,4 @@
-﻿// Copyright Microsoft 2014
-
-namespace FileSearch
+﻿namespace FileSearch
 {
     public class Program
     {

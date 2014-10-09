@@ -1,5 +1,3 @@
-// Copyright Microsoft 2014
-
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -14,18 +12,20 @@ namespace FileSearch
     {
         private static async Task AddMatch(string searchTerm, string file, StringComparison comparer, ConcurrentBag<string> foundFiles)
         {
-            const int BUFFER_SIZE = 4096;
-            using (var stream = File.OpenRead(file))
+            const int bufferSize = 4096;
+            using(var stream = File.OpenRead(file))
             {
-                using (var reader = new StreamReader(stream, Encoding.UTF8, true, BUFFER_SIZE))
+                using(var reader = new StreamReader(stream, Encoding.UTF8, true, bufferSize))
                 {
-                    while (true)
+                    while(true)
                     {
                         var line = await reader.ReadLineAsync();
-                        if (line == null)
+                        if(line == null)
+                        {
                             break;
+                        }
 
-                        if (line.IndexOf(searchTerm, comparer) >= 0)
+                        if(line.IndexOf(searchTerm, comparer) >= 0)
                         {
                             foundFiles.Add(file);
                             break;
@@ -51,7 +51,7 @@ namespace FileSearch
         {
             var filesToSearch = new List<string>();
 
-            foreach (var extension in searchQuery.Extensions)
+            foreach(var extension in searchQuery.Extensions)
             {
                 var files = Directory.GetFiles(searchQuery.CurrentDir, "*." + extension, SearchOption.AllDirectories);
                 filesToSearch.AddRange(files);
@@ -67,7 +67,7 @@ namespace FileSearch
 
             var foundFiles = FindMatches(searchQuery, filesToSearch);
 
-            foreach (var foundFile in foundFiles)
+            foreach(var foundFile in foundFiles)
             {
                 searchQuery.Report(foundFile);
             }

@@ -1,6 +1,4 @@
-﻿// Copyright Microsoft 2014
-
-using System;
+﻿using System;
 using System.IO;
 using System.Linq;
 
@@ -12,13 +10,17 @@ namespace FileSearch
         {
             searchQuery = new SearchQuery();
 
-            if (args.IsEmpty())
+            if(args.IsEmpty())
+            {
                 return false;
+            }
 
             var argLookup = args.ToParamDictionary();
 
-            if (argLookup.ContainsKey("?"))
+            if(argLookup.ContainsKey("?"))
+            {
                 return false;
+            }
 
             try
             {
@@ -31,7 +33,7 @@ namespace FileSearch
 
                 return File.Exists(searchQuery.FileOpenerPath);
             }
-            catch (Exception)
+            catch(Exception)
             {
                 return false;
             }

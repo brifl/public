@@ -1,6 +1,4 @@
-﻿// Copyright Microsoft 2014
-
-using System;
+﻿using System;
 
 namespace FileSearch
 {
@@ -21,7 +19,7 @@ namespace FileSearch
         public void ExecuteSearch(string[] args)
         {
             SearchQuery searchQuery;
-            if (_queryBuilder.TryParseArgs(args, out searchQuery))
+            if(_queryBuilder.TryParseArgs(args, out searchQuery))
             {
                 var results = _runner.Run(searchQuery);
                 _opener.ConfirmOpen(results, searchQuery);

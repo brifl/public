@@ -1,6 +1,4 @@
-﻿// Copyright Microsoft 2014
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,16 +13,18 @@ namespace FileSearch
             var currentKey = "s";
             argLookup[currentKey] = new List<string>();
 
-            foreach (var a in args)
+            foreach(var a in args)
             {
                 var arg = a.Trim();
-                if (arg.StartsWith("-"))
+                if(arg.StartsWith("-"))
                 {
                     currentKey = arg.Trim().Substring(1);
                     argLookup[currentKey] = new List<string>();
                 }
                 else
+                {
                     argLookup[currentKey].Add(arg);
+                }
             }
 
             return argLookup;

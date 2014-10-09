@@ -1,0 +1,1 @@
+Another app to search in text files. It is very fast and it works for my needs. 
