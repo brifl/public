@@ -97,17 +97,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FuncFactory.cs" />
+    <Compile Include="IDevice.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="IInitializable.cs" />
+    <Compile Include="InitializedRunnable.cs" />
     <Compile Include="Initializer.cs" />
+    <Compile Include="IOutputDevice.cs" />
+    <Compile Include="IPollable.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="IRunnableFactory.cs" />
+    <Compile Include="ISensor.cs" />
+    <Compile Include="LedRgb.cs" />
+    <Compile Include="OrderedRunner.cs" />
     <Compile Include="Pi3.cs" />
     <Compile Include="Pin.cs" />
+    <Compile Include="RgbCommand.cs" />
     <Compile Include="RunnableFactory.cs" />
     <Compile Include="StartupTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestLedRunnable.cs" />
+    <Compile Include="Temperature.cs" />
+    <Compile Include="TemperatureSensor.cs" />
+    <Compile Include="Time.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

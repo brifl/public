@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Windows.Devices.Sensors;
 
 namespace PlantSitter
 {
-    class Initializer : IInitializable
+    internal class Initializer : IInitializable
     {
         private readonly IEnumerable<IInitializable> _initializables;
 
@@ -23,6 +24,7 @@ namespace PlantSitter
                     if (!initializable.IsInitialized)
                     {
                         await initializable.Initialize();
+                        initializable.IsInitialized = true;
                     }
                 }
             }
