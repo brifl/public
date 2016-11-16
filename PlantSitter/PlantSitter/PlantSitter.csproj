@@ -96,11 +96,18 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FuncFactory.cs" />
+    <Compile Include="IFactory.cs" />
+    <Compile Include="IInitializable.cs" />
+    <Compile Include="Initializer.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="IRunnableFactory.cs" />
+    <Compile Include="Pi3.cs" />
+    <Compile Include="Pin.cs" />
     <Compile Include="RunnableFactory.cs" />
     <Compile Include="StartupTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestLedRunnable.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
