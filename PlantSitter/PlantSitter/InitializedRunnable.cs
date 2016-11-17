@@ -6,8 +6,8 @@ namespace PlantSitter
 {
     internal class InitializedRunnable : IRunnable
     {
-        private readonly IRunnable _runnable;
         private readonly IInitializable _initializer;
+        private readonly IRunnable _runnable;
 
         public InitializedRunnable(IEnumerable<object> instances)
         {

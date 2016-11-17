@@ -5,17 +5,21 @@ namespace PlantSitter
 {
     internal class LedRgb : IOutputDevice<RgbCommand>
     {
-        private readonly Pin<GpioPin> _blueOut;
-        private readonly Pin<GpioPin> _greenOut;
-        private readonly Pin<GpioPin> _redOut;
+        private readonly IBoardResourceProvider1<GpioPin, GpioPinDriveMode> _blueOut;
+        private readonly IBoardResourceProvider1<GpioPin, GpioPinDriveMode> _greenOut;
+        private readonly IBoardResourceProvider1<GpioPin, GpioPinDriveMode> _redOut;
 
         private GpioPin RedPin { get; set; }
         private GpioPin GreenPin { get; set; }
         private GpioPin BluePin { get; set; }
 
-        public LedRgb(string name, Pin<GpioPin> redOut, Pin<GpioPin> greenOut, Pin<GpioPin> blueOut)
+        public LedRgb(
+            IBoardResourceProvider1<GpioPin, GpioPinDriveMode> redOut,
+            IBoardResourceProvider1<GpioPin, GpioPinDriveMode> greenOut,
+            IBoardResourceProvider1<GpioPin, GpioPinDriveMode> blueOut,
+            string name = null)
         {
-            Name = name;
+            Name = NameGenerator.NameFor<LedRgb>(name);
             _redOut = redOut;
             _greenOut = greenOut;
             _blueOut = blueOut;
@@ -30,11 +34,11 @@ namespace PlantSitter
 
         public async Task Initialize()
         {
-            RedPin = await _redOut.GetAsync();
+            RedPin = await _redOut.GetAsync(GpioPinDriveMode.Output);
             SetColor(RedPin, false);
-            GreenPin = await _greenOut.GetAsync();
+            GreenPin = await _greenOut.GetAsync(GpioPinDriveMode.Output);
             SetColor(GreenPin, false);
-            BluePin = await _blueOut.GetAsync();
+            BluePin = await _blueOut.GetAsync(GpioPinDriveMode.Output);
             SetColor(BluePin, false);
         }
 

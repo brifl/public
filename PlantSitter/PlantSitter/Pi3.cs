@@ -9,85 +9,90 @@ namespace PlantSitter
 {
     internal class Pi3
     {
-        public static Pin<GpioPin> Gpio2In = new Pin<GpioPin>(() => OpenGpio(2, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio2Out = new Pin<GpioPin>(() => OpenGpio(2, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio3In = new Pin<GpioPin>(() => OpenGpio(3, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio3Out = new Pin<GpioPin>(() => OpenGpio(3, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio4In = new Pin<GpioPin>(() => OpenGpio(4, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio4Out = new Pin<GpioPin>(() => OpenGpio(4, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio5In = new Pin<GpioPin>(() => OpenGpio(5, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio5Out = new Pin<GpioPin>(() => OpenGpio(5, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio6In = new Pin<GpioPin>(() => OpenGpio(6, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio6Out = new Pin<GpioPin>(() => OpenGpio(6, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio7In = new Pin<GpioPin>(() => OpenGpio(7, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio7Out = new Pin<GpioPin>(() => OpenGpio(7, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio8In = new Pin<GpioPin>(() => OpenGpio(8, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio8Out = new Pin<GpioPin>(() => OpenGpio(8, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio9In = new Pin<GpioPin>(() => OpenGpio(9, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio9Out = new Pin<GpioPin>(() => OpenGpio(9, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio10In = new Pin<GpioPin>(() => OpenGpio(10, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio10Out = new Pin<GpioPin>(() => OpenGpio(10, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio11In = new Pin<GpioPin>(() => OpenGpio(11, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio11Out = new Pin<GpioPin>(() => OpenGpio(11, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio12In = new Pin<GpioPin>(() => OpenGpio(12, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio12Out = new Pin<GpioPin>(() => OpenGpio(12, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio13In = new Pin<GpioPin>(() => OpenGpio(13, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio13Out = new Pin<GpioPin>(() => OpenGpio(13, GpioPinDriveMode.Output));
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio2 = new Gpio(2);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio3 = new Gpio(3);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio4 = new Gpio(4);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio5 = new Gpio(5);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio6 = new Gpio(6);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio7 = new Gpio(7);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio8 = new Gpio(8);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio9 = new Gpio(9);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio10 = new Gpio(10);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio11 = new Gpio(11);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio12 = new Gpio(12);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio13 = new Gpio(13);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio16 = new Gpio(16);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio17 = new Gpio(17);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio18 = new Gpio(18);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio19 = new Gpio(19);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio20 = new Gpio(20);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio21 = new Gpio(21);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio22 = new Gpio(22);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio23 = new Gpio(23);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio24 = new Gpio(24);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio25 = new Gpio(25);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio26 = new Gpio(26);
+        public static IBoardResourceProvider1<GpioPin, GpioPinDriveMode> Gpio27 = new Gpio(27);
 
-        public static Pin<GpioPin> Gpio16In = new Pin<GpioPin>(() => OpenGpio(16, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio16Out = new Pin<GpioPin>(() => OpenGpio(16, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio17In = new Pin<GpioPin>(() => OpenGpio(17, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio17Out = new Pin<GpioPin>(() => OpenGpio(17, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio18In = new Pin<GpioPin>(() => OpenGpio(18, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio18Out = new Pin<GpioPin>(() => OpenGpio(18, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio19In = new Pin<GpioPin>(() => OpenGpio(19, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio19Out = new Pin<GpioPin>(() => OpenGpio(19, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio20In = new Pin<GpioPin>(() => OpenGpio(20, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio20Out = new Pin<GpioPin>(() => OpenGpio(20, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio21In = new Pin<GpioPin>(() => OpenGpio(21, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio21Out = new Pin<GpioPin>(() => OpenGpio(21, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio22In = new Pin<GpioPin>(() => OpenGpio(22, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio22Out = new Pin<GpioPin>(() => OpenGpio(22, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio23In = new Pin<GpioPin>(() => OpenGpio(23, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio23Out = new Pin<GpioPin>(() => OpenGpio(23, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio24In = new Pin<GpioPin>(() => OpenGpio(24, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio24Out = new Pin<GpioPin>(() => OpenGpio(24, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio25In = new Pin<GpioPin>(() => OpenGpio(25, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio25Out = new Pin<GpioPin>(() => OpenGpio(25, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio26In = new Pin<GpioPin>(() => OpenGpio(26, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio26Out = new Pin<GpioPin>(() => OpenGpio(26, GpioPinDriveMode.Output));
-        public static Pin<GpioPin> Gpio27In = new Pin<GpioPin>(() => OpenGpio(27, GpioPinDriveMode.Input));
-        public static Pin<GpioPin> Gpio27Out = new Pin<GpioPin>(() => OpenGpio(27, GpioPinDriveMode.Output));
+        public static IBoardResourceProvider<SerialDevice> Uart0 = new Uart("UART0");
+        public static IBoardResourceProvider<SerialDevice> Uart1 = new Uart("UART1");
 
-        public static Pin<SerialDevice> Uart0 = new Pin<SerialDevice>(() => OpenSerialUart("UART0"));
-        public static Pin<SerialDevice> Uart1 = new Pin<SerialDevice>(() => OpenSerialUart("UART1"));
+        public static IBoardResourceProvider<SpiDevice> Spi0 = new Spi(0);
+        public static IBoardResourceProvider<SpiDevice> Spi1 = new Spi(1);
 
-        public static Pin<SpiDevice> Spi0 = new Pin<SpiDevice>(() => OpenSpi(0));
-        public static Pin<SpiDevice> Spi1 = new Pin<SpiDevice>(() => OpenSpi(1));
-
-        private static async Task<GpioPin> OpenGpio(int pinNumber, GpioPinDriveMode driveMode)
+        public class Gpio : IBoardResourceProvider1<GpioPin, GpioPinDriveMode>
         {
-            var controller = await GpioController.GetDefaultAsync();
-            var pin = controller.OpenPin(pinNumber);
-            pin.SetDriveMode(driveMode);
+            private readonly int _pinNumber;
 
-            return pin;
+            internal Gpio(int pinNumber)
+            {
+                _pinNumber = pinNumber;
+            }
+
+            public async Task<GpioPin> GetAsync(GpioPinDriveMode driveMode)
+            {
+                var controller = await GpioController.GetDefaultAsync();
+                var pin = controller.OpenPin(_pinNumber);
+                pin.SetDriveMode(driveMode);
+
+                return pin;
+            }
         }
 
-        private static async Task<SerialDevice> OpenSerialUart(string id)
+        public class Uart : IBoardResourceProvider<SerialDevice>
         {
-            var selector = SerialDevice.GetDeviceSelector(id); 
-            var deviceInfo = await DeviceInformation.FindAllAsync(selector);
-            var device = await SerialDevice.FromIdAsync(deviceInfo[0].Id);
-            return device;
+            private readonly string _id;
+
+            internal Uart(string id)
+            {
+                _id = id;
+            }
+
+            public async Task<SerialDevice> GetAsync()
+            {
+                var selector = SerialDevice.GetDeviceSelector(_id);
+                var deviceInfo = await DeviceInformation.FindAllAsync(selector);
+                var device = await SerialDevice.FromIdAsync(deviceInfo[0].Id);
+                return device;
+            }
         }
 
-        private static async Task<SpiDevice> OpenSpi(int id)
+        private class Spi : IBoardResourceProvider<SpiDevice>
         {
-            var settings = new SpiConnectionSettings(id);
-            var controller = await SpiController.GetDefaultAsync();
-            var device = controller.GetDevice(settings);
-            return device;
+            private readonly int _id;
+
+            internal Spi(int id)
+            {
+                _id = id;
+            }
+
+            public async Task<SpiDevice> GetAsync()
+            {
+                var settings = new SpiConnectionSettings(_id);
+                var controller = await SpiController.GetDefaultAsync();
+                var device = controller.GetDevice(settings);
+                return device;
+            }
         }
     }
 }

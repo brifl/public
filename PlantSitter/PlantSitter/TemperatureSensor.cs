@@ -13,6 +13,7 @@ namespace PlantSitter
         }
 
         public string Name { get; }
+
         public Temperature GetValue()
         {
             throw new NotImplementedException();

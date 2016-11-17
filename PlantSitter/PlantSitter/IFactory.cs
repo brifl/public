@@ -1,6 +1,6 @@
 namespace PlantSitter
 {
-    interface IFactory<out T>
+    internal interface IFactory<out T>
     {
         T Build();
     }

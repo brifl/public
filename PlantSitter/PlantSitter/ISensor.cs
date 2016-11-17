@@ -2,7 +2,7 @@ using System;
 
 namespace PlantSitter
 {
-    internal interface ISensor<out TValue> : IDevice, IPollable<TValue>, IObservable<TValue>
+    internal interface ISensor<out TValue> : IPollable<TValue>, IObservable<TValue>
     {
     }
 }

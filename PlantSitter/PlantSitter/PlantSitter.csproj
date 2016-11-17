@@ -96,7 +96,9 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DependencyContainer.cs" />
     <Compile Include="FuncFactory.cs" />
+    <Compile Include="IBoardResourceProvider.cs" />
     <Compile Include="IDevice.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="IInitializable.cs" />
@@ -104,13 +106,16 @@
     <Compile Include="Initializer.cs" />
     <Compile Include="IOutputDevice.cs" />
     <Compile Include="IPollable.cs" />
+    <Compile Include="IRegistry.cs" />
+    <Compile Include="IResolver.cs" />
     <Compile Include="IRunnable.cs" />
     <Compile Include="IRunnableFactory.cs" />
     <Compile Include="ISensor.cs" />
     <Compile Include="LedRgb.cs" />
+    <Compile Include="NameGenerator.cs" />
     <Compile Include="OrderedRunner.cs" />
     <Compile Include="Pi3.cs" />
-    <Compile Include="Pin.cs" />
+    <Compile Include="PlantSitterDependencies.cs" />
     <Compile Include="RgbCommand.cs" />
     <Compile Include="RunnableFactory.cs" />
     <Compile Include="StartupTask.cs" />

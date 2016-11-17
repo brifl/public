@@ -1,4 +1,4 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
@@ -7,8 +7,11 @@ namespace PlantSitter
 {
     internal class RunnableFactory : IRunnableFactory
     {
+        private readonly PlantSitterDependencies _dependencies = new PlantSitterDependencies();
+
         public IRunnable GetRunnable(IBackgroundTaskInstance taskInstance)
         {
+            _dependencies.Initialize();
             var instances = GetInstances(taskInstance);
             return new InitializedRunnable(instances);
         }
@@ -17,19 +20,28 @@ namespace PlantSitter
         {
             var instances = new List<object>();
 
-            instances.Add(new LedRgb("TestLED", Pi3.Gpio2Out, Pi3.Gpio3Out, Pi3.Gpio4Out));
+            instances.Add(_dependencies.Resolve<TestRunnable>());
             return instances;
         }
     }
 
+
     internal class TestRunnable : IRunnable
     {
+        private readonly LedRgb _ledRgb;
+
+        public TestRunnable(LedRgb ledRgb)
+        {
+            _ledRgb = ledRgb;
+        }
+
         public Task Run()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
+
 //ApplicationTriggerDetails;
 //AppServiceTriggerDetails;
 //ActivitySensorTriggerDetails;
