@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PlantSitter
+namespace Pi3BackgroundApp
 {
-    internal class PlantSitterDependencies : IInitializable, IResolver
+    internal class Pi3BackgroundAppDependencies : IInitializable, IResolver
     {
         private readonly DependencyContainer _dependencies = new DependencyContainer();
 

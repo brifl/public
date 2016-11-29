@@ -5,7 +5,7 @@ using Windows.Devices.Gpio;
 using Windows.Devices.SerialCommunication;
 using Windows.Devices.Spi;
 
-namespace PlantSitter
+namespace Pi3BackgroundApp
 {
     internal class Pi3
     {

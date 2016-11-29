@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 
-namespace PlantSitter
+namespace Pi3BackgroundApp
 {
     internal class RunnableFactory : IRunnableFactory
     {
-        private readonly PlantSitterDependencies _dependencies = new PlantSitterDependencies();
+        private readonly Pi3BackgroundAppDependencies _dependencies = new Pi3BackgroundAppDependencies();
 
         public IRunnable GetRunnable(IBackgroundTaskInstance taskInstance)
         {

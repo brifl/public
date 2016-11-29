@@ -1,0 +1,33 @@
+﻿Reinstall IoT SDK
+Understand GPIO
+Get LED working
+Get temperature sensor working
+Reinstall IoT dashboard
+Get another 32gb card for experiments
+Understand pull up pull down GPIO pins
+Try samples
+Understand when to use resistors
+Add Azure IoT dependencies
+Break out IoT.Common assembly
+Add UT assembly
+Implement temp and humidity upload
+Hi mid low temp and humidity
+High mid low light
+Outside water level
+Light scheduling
+Water level
+Safety sensor
+Tent open
+Camera
+PH
+Bin sharing
+Peristaltic PH adjustment
+Peristaltic nutrients
+Safety items enabled on schedule
+Auto flush
+Dashboard
+	Timeline
+	Power BI
+	Charts
+	Controls/actions
+Summarize project components/code
