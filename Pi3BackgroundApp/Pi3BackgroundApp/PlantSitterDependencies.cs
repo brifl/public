@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Pi3BackgroundApp
 {
-    internal class Pi3BackgroundAppDependencies : IInitializable, IResolver
+    internal class PlantSitterDependencies : IInitializable, IResolver
     {
         private readonly DependencyContainer _dependencies = new DependencyContainer();
 

@@ -28,6 +28,8 @@ namespace Pi3BackgroundApp
         public void Send(RgbCommand message)
         {
             SetColor(RedPin, message.Red);
+            SetColor(GreenPin, message.Green);
+            SetColor(BluePin, message.Blue);
         }
 
         public bool IsInitialized { get; set; }

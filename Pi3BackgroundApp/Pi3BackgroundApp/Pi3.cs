@@ -49,12 +49,13 @@ namespace Pi3BackgroundApp
                 _pinNumber = pinNumber;
             }
 
-            public Task<GpioPin> GetAsync(GpioPinDriveMode driveMode)
+            public async Task<GpioPin> GetAsync(GpioPinDriveMode driveMode)
             {
-                var controller = GpioController.GetDefault();
+                var controller = await GpioController.GetDefaultAsync();
                 var pin = controller.OpenPin(_pinNumber);
                 pin.SetDriveMode(driveMode);
-                return Task.FromResult(pin);
+
+                return pin;
             }
         }
 
@@ -72,6 +73,7 @@ namespace Pi3BackgroundApp
                 var selector = SerialDevice.GetDeviceSelector(_id);
                 var deviceInfo = await DeviceInformation.FindAllAsync(selector);
                 var device = await SerialDevice.FromIdAsync(deviceInfo[0].Id);
+
                 return device;
             }
         }

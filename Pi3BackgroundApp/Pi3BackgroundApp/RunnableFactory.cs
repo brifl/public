@@ -7,7 +7,7 @@ namespace Pi3BackgroundApp
 {
     internal class RunnableFactory : IRunnableFactory
     {
-        private readonly Pi3BackgroundAppDependencies _dependencies = new Pi3BackgroundAppDependencies();
+        private readonly PlantSitterDependencies _dependencies = new PlantSitterDependencies();
 
         public IRunnable GetRunnable(IBackgroundTaskInstance taskInstance)
         {
@@ -18,14 +18,10 @@ namespace Pi3BackgroundApp
 
         private IEnumerable<object> GetInstances(IBackgroundTaskInstance taskInstance)
         {
-            var instances = new List<object>();
-
-            instances.Add(_dependencies.Resolve<TestRunnable>());
-            return instances;
+            return _dependencies.ResolveAll();
         }
     }
-
-
+    
     internal class TestRunnable : IRunnable
     {
         private readonly LedRgb _ledRgb;
@@ -35,10 +31,13 @@ namespace Pi3BackgroundApp
             _ledRgb = ledRgb;
         }
 
-        public Task Run()
+        public async Task Run()
         {
-            _ledRgb.Send(new RgbCommand {Green = true});
-            return TaskUtil.Empty;
+            for (int i = 0; i < 100; i++)
+            {
+                _ledRgb.Send(new RgbCommand { Green = i%2==0 });
+                await Task.Delay(TimeSpan.FromSeconds(1));
+            }
         }
     }
 }
