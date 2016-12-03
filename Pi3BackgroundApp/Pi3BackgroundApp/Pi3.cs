@@ -37,8 +37,8 @@ namespace Pi3BackgroundApp
         public static IBoardResourceProvider<SerialDevice> Uart0 = new Uart("UART0");
         public static IBoardResourceProvider<SerialDevice> Uart1 = new Uart("UART1");
 
-        public static IBoardResourceProvider<SpiDevice> Spi0 = new Spi(0);
-        public static IBoardResourceProvider<SpiDevice> Spi1 = new Spi(1);
+        public static IBoardResourceProvider1<SpiDevice, Action<SpiConnectionSettings>> Spi0 = new Spi(0);
+        public static IBoardResourceProvider1<SpiDevice, Action<SpiConnectionSettings>> Spi1 = new Spi(1);
 
         public class Gpio : IBoardResourceProvider1<GpioPin, GpioPinDriveMode>
         {
@@ -78,7 +78,7 @@ namespace Pi3BackgroundApp
             }
         }
 
-        private class Spi : IBoardResourceProvider<SpiDevice>
+        private class Spi : IBoardResourceProvider1<SpiDevice, Action<SpiConnectionSettings>>
         {
             private readonly int _id;
 
@@ -87,9 +87,10 @@ namespace Pi3BackgroundApp
                 _id = id;
             }
 
-            public async Task<SpiDevice> GetAsync()
+            public async Task<SpiDevice> GetAsync(Action<SpiConnectionSettings> settingsMutator = null)
             {
                 var settings = new SpiConnectionSettings(_id);
+                settingsMutator?.Invoke(settings);
                 var device = await SpiDevice.FromIdAsync(_id.ToString(), settings);
                 return device;
             }

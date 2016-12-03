@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Background;
 
 namespace Pi3BackgroundApp
@@ -19,25 +17,6 @@ namespace Pi3BackgroundApp
         private IEnumerable<object> GetInstances(IBackgroundTaskInstance taskInstance)
         {
             return _dependencies.ResolveAll();
-        }
-    }
-    
-    internal class TestRunnable : IRunnable
-    {
-        private readonly LedRgb _ledRgb;
-
-        public TestRunnable(LedRgb ledRgb)
-        {
-            _ledRgb = ledRgb;
-        }
-
-        public async Task Run()
-        {
-            for (int i = 0; i < 100; i++)
-            {
-                _ledRgb.Send(new RgbCommand { Green = i%2==0 });
-                await Task.Delay(TimeSpan.FromSeconds(1));
-            }
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Pi3BackgroundApp
 
         private static void SetColor(GpioPin pin, bool isOn)
         {
-            var newValue = isOn ? GpioPinValue.High : GpioPinValue.Low;
+            var newValue = isOn ? GpioPinValue.Low : GpioPinValue.High;
             if (pin.Read() != newValue)
             {
                 pin.Write(newValue);
