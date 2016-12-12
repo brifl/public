@@ -93,21 +93,27 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="ArduinoSketches\R3_0x40\R3_0x40.ino" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArduinoI2C.cs" />
+    <Compile Include="BitBuffer.cs" />
     <Compile Include="DataBitConverter.cs" />
+    <Compile Include="Delayer.cs" />
     <Compile Include="DependencyContainer.cs" />
     <Compile Include="DeviceReadFailedException.cs" />
     <Compile Include="FuncFactory.cs" />
     <Compile Include="Humidity.cs" />
     <Compile Include="IBoardResourceProvider.cs" />
     <Compile Include="IDataBitConverter.cs" />
+    <Compile Include="IDelay.cs" />
     <Compile Include="IDevice.cs" />
     <Compile Include="IFactory.cs" />
     <Compile Include="IInitializable.cs" />
     <Compile Include="InitializedRunnable.cs" />
     <Compile Include="Initializer.cs" />
+    <Compile Include="InsertOptimizedBigList.cs" />
     <Compile Include="IOutputDevice.cs" />
     <Compile Include="IPollable.cs" />
     <Compile Include="IRegistry.cs" />
@@ -116,6 +122,7 @@
     <Compile Include="IRunnableFactory.cs" />
     <Compile Include="ISensor.cs" />
     <Compile Include="LedRgb.cs" />
+    <Compile Include="MinWaiter.cs" />
     <Compile Include="NameGenerator.cs" />
     <Compile Include="OrderedRunner.cs" />
     <Compile Include="Pi3.cs" />
@@ -128,7 +135,7 @@
     <Compile Include="Temperature.cs" />
     <Compile Include="TemperatureHumidity.cs" />
     <Compile Include="TemperatureSensor.cs" />
-    <Compile Include="TempHumiditySensor.cs" />
+    <Compile Include="TempHumiditySensorDHT11.cs" />
     <Compile Include="TestRunnable.cs" />
     <Compile Include="Time.cs" />
   </ItemGroup>
@@ -162,6 +169,7 @@
       <InProject>false</InProject>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

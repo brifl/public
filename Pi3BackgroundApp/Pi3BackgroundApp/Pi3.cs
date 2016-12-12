@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Windows.Devices.Enumeration;
 using Windows.Devices.Gpio;
+using Windows.Devices.I2c;
 using Windows.Devices.SerialCommunication;
 using Windows.Devices.Spi;
 
@@ -39,6 +40,11 @@ namespace Pi3BackgroundApp
 
         public static IBoardResourceProvider1<SpiDevice, Action<SpiConnectionSettings>> Spi0 = new Spi(0);
         public static IBoardResourceProvider1<SpiDevice, Action<SpiConnectionSettings>> Spi1 = new Spi(1);
+
+        public static IBoardResourceProvider<I2cDevice> I2C_0x40 = new I2CProvider(0x40);
+        public static IBoardResourceProvider<I2cDevice> I2C_0x41 = new I2CProvider(0x41);
+        public static IBoardResourceProvider<I2cDevice> I2C_0x42 = new I2CProvider(0x42);
+        public static IBoardResourceProvider<I2cDevice> I2C_0x43 = new I2CProvider(0x43);
 
         public class Gpio : IBoardResourceProvider1<GpioPin, GpioPinDriveMode>
         {
@@ -92,6 +98,30 @@ namespace Pi3BackgroundApp
                 var settings = new SpiConnectionSettings(_id);
                 settingsMutator?.Invoke(settings);
                 var device = await SpiDevice.FromIdAsync(_id.ToString(), settings);
+                return device;
+            }
+        }
+
+        private class I2CProvider : IBoardResourceProvider<I2cDevice>
+        {
+            private readonly int _slaveAddress;
+
+            public I2CProvider(byte slaveAddress)
+            {
+                _slaveAddress = slaveAddress;
+            }
+
+            public async Task<I2cDevice> GetAsync()
+            {
+                var settings = new I2cConnectionSettings(_slaveAddress)
+                {
+                    BusSpeed = I2cBusSpeed.StandardMode
+                };
+                var selector = I2cDevice.GetDeviceSelector("I2C1");
+                var deviceInfo = await DeviceInformation.FindAllAsync(selector);
+
+                var device = await I2cDevice.FromIdAsync(deviceInfo[0].Id, settings);
+
                 return device;
             }
         }
