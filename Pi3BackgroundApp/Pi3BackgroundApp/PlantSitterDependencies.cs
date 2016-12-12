@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Pi3BackgroundApp.Prototyping;
 
 namespace Pi3BackgroundApp
 {
@@ -32,8 +33,13 @@ namespace Pi3BackgroundApp
 
         private void RegisterAll()
         {
-            _dependencies.Register(r => new LedRgb(Pi3.Gpio2, Pi3.Gpio3, Pi3.Gpio4), true);
-            _dependencies.Register(r => new TestRunnable(r.Resolve<LedRgb>()), true);
+            _dependencies.Register(r => new TestRunnable2(r.Resolve<ArduinoI2C>(Instances.ArduinoTempHumidity)), true);
+            _dependencies.Register(r => new ArduinoI2C(Instances.ArduinoTempHumidity, Pi3.I2C_0x40), true, Instances.ArduinoTempHumidity);
+        }
+
+        private static class Instances
+        {
+            public const string ArduinoTempHumidity = "ArduinoTempHumidity";
         }
     }
 }

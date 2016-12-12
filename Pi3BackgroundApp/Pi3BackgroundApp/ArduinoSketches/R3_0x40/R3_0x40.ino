@@ -9,12 +9,12 @@
  */
 
 #define I2C_SLAVE_ADDRESS 0x40
-#define BUFFER_LENGTH 16
 #define DHTTYPE DHT11
 #define PIN_DHT11 2
 
 DHT_Unified dht(PIN_DHT11, DHTTYPE);
 
+bool heartbeat = false;
 uint32_t delayMS;
 volatile float temperature;
 volatile float humidity;
@@ -32,7 +32,8 @@ void initSensors()
 	dht.begin();
 	sensor_t sensor;
 	dht.temperature().getSensor(&sensor);
-	delayMS = sensor.min_delay / 1000;	
+	delayMS = sensor.min_delay / 1000;
+  pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void initI2C()
@@ -45,6 +46,16 @@ void loop()
 {
 	delay(delayMS);
 	setTempAndHumidity();
+  if(heartbeat)
+  {
+    digitalWrite(LED_BUILTIN, HIGH);
+    heartbeat = false;
+  }
+  else
+  {  
+    digitalWrite(LED_BUILTIN, LOW);
+    heartbeat = true;
+  }
 }
 
 void setTempAndHumidity()

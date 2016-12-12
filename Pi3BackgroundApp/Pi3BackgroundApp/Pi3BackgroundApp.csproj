@@ -135,9 +135,9 @@
     <Compile Include="Temperature.cs" />
     <Compile Include="TemperatureHumidity.cs" />
     <Compile Include="TemperatureSensor.cs" />
-    <Compile Include="TempHumiditySensorDHT11.cs" />
-    <Compile Include="TestRunnable.cs" />
+    <Compile Include="Prototyping\TestRunnable1.cs" />
     <Compile Include="Time.cs" />
+    <Compile Include="Prototyping\TestRunnable2.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

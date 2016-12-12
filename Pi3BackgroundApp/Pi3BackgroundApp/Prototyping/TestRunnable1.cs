@@ -1,13 +1,13 @@
 using System;
 using System.Threading.Tasks;
 
-namespace Pi3BackgroundApp
+namespace Pi3BackgroundApp.Prototyping
 {
-    internal class TestRunnable : IRunnable
+    internal class TestRunnable1 : IRunnable
     {
         private readonly LedRgb _ledRgb;
 
-        public TestRunnable(LedRgb ledRgb)
+        public TestRunnable1(LedRgb ledRgb)
         {
             _ledRgb = ledRgb;
         }
