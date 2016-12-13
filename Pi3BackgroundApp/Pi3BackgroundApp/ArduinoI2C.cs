@@ -9,7 +9,7 @@ namespace Pi3BackgroundApp
     internal class ArduinoI2C : IPollable<JsonObject>, IDevice
     {
         private const int BufferLength = 32;
-        private const byte EmptyByte = new byte();
+        private const byte EmptyByte = byte.MaxValue;
 
         private IBoardResourceProvider<I2cDevice> I2CProvider { get; }
         private I2cDevice Arduino { get; set; }
@@ -41,7 +41,14 @@ namespace Pi3BackgroundApp
             var readBuffer = new byte[BufferLength];
             arduino.Read(readBuffer);
 
-            var charCount = readBuffer.TakeWhile(b => !b.Equals(EmptyByte)).Count();
+            var charCount = 0;
+            foreach (var b in readBuffer)
+            {
+                if (!b.Equals(EmptyByte))
+                {
+                    charCount++;
+                }
+            }
 
             if (charCount == 0)
             {

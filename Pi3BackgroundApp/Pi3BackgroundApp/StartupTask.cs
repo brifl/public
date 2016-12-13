@@ -1,4 +1,6 @@
-﻿using Windows.ApplicationModel.Background;
+﻿using System;
+using System.Diagnostics;
+using Windows.ApplicationModel.Background;
 
 // The Background Application template is documented at http://go.microsoft.com/fwlink/?LinkID=533884&clcid=0x409
 
@@ -15,6 +17,10 @@ namespace Pi3BackgroundApp
             {
                 var runnable = _runnables.GetRunnable(taskInstance);
                 await runnable.Run();
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine($"Total. Fail. {e.Message}");
             }
             finally
             {

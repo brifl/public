@@ -1,3 +1,5 @@
+using System;
+
 namespace Pi3BackgroundApp
 {
     internal class Temperature
@@ -12,12 +14,17 @@ namespace Pi3BackgroundApp
 
         private static float CtoF(float c)
         {
-            return (c*(9f/5)) + 32;
+            return Round((c*(9f/5)) + 32);
+        }
+
+        private static float Round(float val)
+        {
+            return (float)Math.Round(val, 1);
         }
 
         private static float FtoC(float f)
         {
-            return (f - 32) * (5f / 9);
+            return Round((f - 32) * (5f / 9));
         }
     }
 }
