@@ -18,7 +18,6 @@ bool heartbeat = false;
 uint32_t delayMS;
 volatile float temperature;
 volatile float humidity;
-volatile bool lastReadSuccessful = false;
 
 void setup()
 {  
@@ -33,7 +32,7 @@ void initSensors()
 	sensor_t sensor;
 	dht.temperature().getSensor(&sensor);
 	delayMS = sensor.min_delay / 1000;
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT); //show it's alive
 }
 
 void initI2C()
@@ -63,34 +62,15 @@ void setTempAndHumidity()
 	sensors_event_t event;  
 	dht.temperature().getEvent(&event);
 
-	if (isnan(event.temperature)) 
+	if (!isnan(event.temperature))
 	{
-		Serial.println("Error reading temperature");
-		lastReadSuccessful = false;
-	}
-	else
-	{
-		Serial.print("Temperature: ");
-		Serial.print(event.temperature);
-		Serial.println(" *C");
 		temperature = event.temperature;
-		lastReadSuccessful = true;
 	}
 
-	dht.humidity().getEvent(&event);
-	
-	if (isnan(event.relative_humidity))
+	dht.humidity().getEvent(&event);	
+	if (!isnan(event.relative_humidity))
 	{
-		Serial.println("Error reading humidity");
-		lastReadSuccessful = false;
-	}
-	else 
-	{
-		Serial.print("Humidity: ");
-		Serial.print(event.relative_humidity);
-		Serial.println("%");
 		humidity = event.relative_humidity;
-		lastReadSuccessful = true;
 	}
 }
 
@@ -101,7 +81,7 @@ void sendReport()
     json += ", \"h\":";
     json += formatFloat(humidity);
     json += "}";
-    Serial.println(json);
+    //Serial.println(json);
     Wire.write(json.c_str());
 }
 

@@ -19,7 +19,7 @@ namespace Pi3BackgroundApp
 
         private static float Round(float val)
         {
-            return (float)Math.Round(val, 1);
+            return (float)Math.Round(val, 2);
         }
 
         private static float FtoC(float f)
