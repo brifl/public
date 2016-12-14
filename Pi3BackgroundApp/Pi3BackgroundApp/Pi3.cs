@@ -5,6 +5,7 @@ using Windows.Devices.Gpio;
 using Windows.Devices.I2c;
 using Windows.Devices.SerialCommunication;
 using Windows.Devices.Spi;
+using Pi3BackgroundApp.Common;
 
 namespace Pi3BackgroundApp
 {

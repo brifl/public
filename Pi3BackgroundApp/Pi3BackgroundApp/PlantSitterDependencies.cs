@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Pi3BackgroundApp.Common;
 using Pi3BackgroundApp.Prototyping;
 
 namespace Pi3BackgroundApp
@@ -19,7 +20,7 @@ namespace Pi3BackgroundApp
                 IsInitialized = true;
             }
 
-            return TaskUtil.Empty;
+            return Task.CompletedTask;
         }
 
         public T Resolve<T>(string name = null)

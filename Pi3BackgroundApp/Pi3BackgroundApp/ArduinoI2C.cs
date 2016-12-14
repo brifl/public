@@ -3,6 +3,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Devices.I2c;
+using Pi3BackgroundApp.Common;
 
 namespace Pi3BackgroundApp
 {

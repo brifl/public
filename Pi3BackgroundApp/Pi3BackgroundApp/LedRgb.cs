@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
+using Pi3BackgroundApp.Common;
 
 namespace Pi3BackgroundApp
 {
