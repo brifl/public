@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Linq;
 using Windows.ApplicationModel.Background;
 
 namespace Pi3BackgroundApp
@@ -18,7 +19,8 @@ namespace Pi3BackgroundApp
             }
             catch(Exception e)
             {
-                Debug.WriteLine($"Total. Fail. {e.Message}");
+                Debug.WriteLine($"Failed with exception: {e.Message}");
+                Debug.WriteLine(e);
             }
             finally
             {

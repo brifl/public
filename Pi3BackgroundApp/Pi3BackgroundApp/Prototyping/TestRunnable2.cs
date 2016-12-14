@@ -14,19 +14,16 @@ namespace Pi3BackgroundApp.Prototyping
 
         public async Task Run()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                var result = _arduino.GetValue();
-                var tempHumidity = new TemperatureHumidity();
+            var result = _arduino.GetValue();
+            var tempHumidity = new TemperatureHumidity();
 
-                var tempC = Convert.ToSingle(result["t"].GetNumber());
-                tempHumidity.Temperature.DegreesCelsius = tempC;
+            var tempC = Convert.ToSingle(result["t"].GetNumber());
+            tempHumidity.Temperature.DegreesCelsius = tempC;
 
-                var humidity = Convert.ToSingle(result["h"].GetNumber());
-                tempHumidity.Humidity.RHPercent = humidity;
+            var humidity = Convert.ToSingle(result["h"].GetNumber());
+            tempHumidity.Humidity.RHPercent = humidity;
 
-                await Task.Delay(TimeSpan.FromSeconds(1));
-            }
+            await Task.Delay(TimeSpan.FromSeconds(1));
         }
     }
 }
