@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using Pi3BackgroundApp.Common;
+using Pi3BackgroundApp.Devices;
 
 namespace Pi3BackgroundApp.Prototyping
 {

@@ -98,7 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\AggregateDisposable.cs" />
-    <Compile Include="ArduinoI2C.cs" />
+    <Compile Include="Devices\ArduinoI2C.cs" />
     <Compile Include="Common\BitBuffer.cs" />
     <Compile Include="Common\DataBitConverter.cs" />
     <Compile Include="Common\Delayer.cs" />
@@ -106,7 +106,7 @@
     <Compile Include="Common\DeviceReadFailedException.cs" />
     <Compile Include="Common\FuncFactory.cs" />
     <Compile Include="Common\GenericDisposable.cs" />
-    <Compile Include="Humidity.cs" />
+    <Compile Include="Devices\Humidity.cs" />
     <Compile Include="Common\IBoardResourceProvider.cs" />
     <Compile Include="Common\IDataBitConverter.cs" />
     <Compile Include="Common\IDelay.cs" />
@@ -125,7 +125,7 @@
     <Compile Include="Common\ISchedule.cs" />
     <Compile Include="Common\ISensor.cs" />
     <Compile Include="Common\ISubscribable.cs" />
-    <Compile Include="LedRgb.cs" />
+    <Compile Include="Devices\LedRgb.cs" />
     <Compile Include="Common\Metronome.cs" />
     <Compile Include="Common\MinWaiter.cs" />
     <Compile Include="Common\NameGenerator.cs" />
@@ -135,15 +135,15 @@
     <Compile Include="PlantSitterDependencies.cs" />
     <Compile Include="Common\ResilientRunner.cs" />
     <Compile Include="Common\RunnableDecorators.cs" />
-    <Compile Include="RgbCommand.cs" />
+    <Compile Include="Devices\RgbCommand.cs" />
     <Compile Include="Common\RunnableFactory.cs" />
     <Compile Include="Common\ScheduleFactory.cs" />
     <Compile Include="Common\ScheduledRunnable.cs" />
+    <Compile Include="TemperatureHumiditySensor.cs" />
     <Compile Include="StartupTask.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Temperature.cs" />
-    <Compile Include="TemperatureHumidity.cs" />
-    <Compile Include="TemperatureSensor.cs" />
+    <Compile Include="Devices\Temperature.cs" />
+    <Compile Include="Devices\TemperatureHumidity.cs" />
     <Compile Include="Prototyping\TestRunnable1.cs" />
     <Compile Include="Common\Time.cs" />
     <Compile Include="Prototyping\TestRunnable2.cs" />
@@ -178,7 +178,9 @@
       <InProject>false</InProject>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Cloud\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

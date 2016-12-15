@@ -1,6 +1,6 @@
 using System;
 
-namespace Pi3BackgroundApp
+namespace Pi3BackgroundApp.Devices
 {
     internal class Temperature
     {

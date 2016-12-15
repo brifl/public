@@ -1,11 +1,10 @@
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Devices.I2c;
 using Pi3BackgroundApp.Common;
 
-namespace Pi3BackgroundApp
+namespace Pi3BackgroundApp.Devices
 {
     internal class ArduinoI2C : IPollable<JsonObject>, IDevice
     {

@@ -34,7 +34,6 @@ namespace Pi3BackgroundApp.Common
                         Task.Factory.StartNew(() => subscriber.Invoke(newValue))
                             .ContinueWith(t => _subscribers[subscriber] = false);
                     }
-                    subscriber.Invoke(newValue);
                 }
                 catch(Exception e)
                 {

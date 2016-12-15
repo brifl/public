@@ -1,30 +1,23 @@
-using System;
 using System.Threading.Tasks;
 using Pi3BackgroundApp.Common;
+using Pi3BackgroundApp.Devices;
 
 namespace Pi3BackgroundApp.Prototyping
 {
     internal class TestRunnable2 : IRunnable
     {
-        private readonly ArduinoI2C _arduino;
+        private readonly IPollable<TemperatureHumidity> _tempHumidity;
 
-        public TestRunnable2(ArduinoI2C arduino)
+        public TestRunnable2(IPollable<TemperatureHumidity> tempHumidity)
         {
-            _arduino = arduino;
+            _tempHumidity = tempHumidity;
         }
 
-        public async Task Run()
+        public Task Run()
         {
-            var result = _arduino.GetValue();
-            var tempHumidity = new TemperatureHumidity();
-
-            var tempC = Convert.ToSingle(result["t"].GetNumber());
-            tempHumidity.Temperature.DegreesCelsius = tempC;
-
-            var humidity = Convert.ToSingle(result["h"].GetNumber());
-            tempHumidity.Humidity.RHPercent = humidity;
-
-            await Task.Delay(TimeSpan.FromSeconds(1));
+            var th = _tempHumidity.GetValue();
+            
+            return Task.CompletedTask;
         }
     }
 }
