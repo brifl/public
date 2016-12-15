@@ -44,7 +44,7 @@ namespace Pi3BackgroundApp
                 Instances.TempHumidity1);
             _dependencies.Register(r => new TestRunnable2(r.Resolve<IPollable<TemperatureHumidity>>(Instances.TempHumidity1))
             .AsResilient().AsScheduled(
-                r.Resolve<IScheduleFactory>().RepeatingScheduleFor(seconds:ScheduleFactory.EveryNIn60(10))
+                r.Resolve<IScheduleFactory>().RepeatingScheduleFor(seconds:ScheduleFactory.EveryNIn60(20))
                 ), true, Instances.Test);
             _dependencies.Register(r => new ArduinoI2C(Instances.Arduino1, Pi3.I2C_0x40), true, Instances.Arduino1);
         }
